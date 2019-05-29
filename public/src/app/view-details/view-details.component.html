@@ -1,0 +1,21 @@
+
+<div class='show_profile'>
+
+  <h2>{{ thisShow.name }}</h2>
+  <h5>{{ thisShow.type }} | {{ thisShow.language }}</h5>
+  <h6>Status: {{ thisShow.status }}</h6>
+  <h6>Runtime: {{ thisShow.runtime }} minutes</h6>
+  <h6>Average Rating: {{ thisShow.rating.average }} stars</h6>
+  <h6>Premiered: {{ thisShow.premiered }}</h6>
+
+  <h6>Synopsis:</h6> 
+    <p class='summary'>{{ summary }}</p>
+
+  <h6>Genre(s):</h6>
+  <ul *ngFor="let genre of thisShow.genres">
+    <li>{{  genre }}</li>
+  </ul>
+  <a href="{{ thisShow.officialSite }}" target="_blank"><button class='official_site_link'>More details on the official site</button></a>
+</div>
+
+<img class='show_profile_pic' src="{{thisShow.image.original}}">

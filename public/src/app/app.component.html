@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center" >
+  <h1>
+    What Will You Binge Next?
+  </h1>
+  <p class="mx-5 mb-5">Select from an extensive collection of high-quality television shows!
+  </p>
+</div>
+
+<!-- <nav class="navbar navbar-light bg-light"> -->
+    <a [routerLink]="['shows']" class="btn btn-outline-white btn-md">Home</a> | 
+    <a [routerLink]="['/shows/topRated']" class="btn btn-outline-white btn-md">Top Rated</a> |
+    <a [routerLink]="['/']" class="btn btn-outline-white btn-md">Latest </a>
+<!-- </nav> -->
+
+<br>
+
+<router-outlet></router-outlet>

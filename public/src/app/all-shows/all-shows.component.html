@@ -1,11 +1,12 @@
-<h2>
-  Search for a Show
-</h2>
+<h5>
+  Discover a new Show
+</h5>
 
 <form  (submit)='filter()'>
   <div>
   <p style='display: inline-block; margin: 10px;'>Genre:
     <select name="genre" [(ngModel)]='filterFor.genre'>
+      <option value='all'>All</option>
       <option value="Drama">Drama</option>
       <option value="Science-Fiction">Science-Fiction</option>
       <option value="Thriller">Thriller</option>
@@ -33,21 +34,42 @@
   
     <p style='display: inline-block; margin: 10px;'>Rating:
       <select name="rating" [(ngModel)]='filterFor.rating'>
-        <option value="9">9+</option>
-        <option value="7">7+</option>
-        <option value="5">5+</option>
+        <option selected value="0">All</option>
+        <option value="8">4+</option>
+        <option value="6">3+</option>
+        <option value="4">2+</option>
       </select>
     </p>
+
+
 
     <input type="submit" value="Search" style='display: inline-block; margin: 10px;'>
 </div>
 </form>
 
+  <h6 [innerHTML]="noShows" style="padding: 15px; color: darkblue;"></h6>
+  <!-- <div>
+      <p *ngFor = "let s of starring" style='display: inline-block; width: 200px;'>
+      {{ s.person.name }}
+    </p>
+  </div> -->
 <div *ngFor = "let d of apiData$" class="show_box" >
   <h5 style="font-weight: bold ">{{d.name}} </h5>
   <h6>Type: {{d.type}} </h6>
+  <div *ngIf = "d.rating.average" style="max-width: 100px; text-align: left;">
 
-  <div *ngIf = "d.rating.average>=8">
+      <!-- <div class="rating value-1 half">
+        <div class="star-container">
+          <star-rating [starType]="'svg'" [rating]=1.5></star-rating>
+        </div>
+      </div> -->
+
+      
+      <star-rating [starType]="'svg'" [rating]='d.rating.average/2' [showHalfStars]="true"></star-rating>
+      </div>
+
+
+  <!-- <div *ngIf = "d.rating.average>=8">
       <h6 class="highly__rated" style="color: green"> Rating: {{d.rating.average}} </h6>
   </div>
 
@@ -57,12 +79,23 @@
 
   <div *ngIf = "d.rating.average<=6 && d.rating.average!=null">
       <h6 class="low__rated" style="color: red"> Rating: {{d.rating.average}} </h6>
-  </div>
-
+  </div>-->
+  
   <div *ngIf = "d.rating.average==null">
       <h6 class="not__rated" style="color: black"> Rating: Not Available </h6>
-  </div>
+  </div> 
 
-  <a [routerLink]="['/shows/', d.id]" (mousemove)="onMousemove(d.id)" ><img src="{{d.image.medium}}"> </a>
+  <a [routerLink]="['/shows/', d.id]"  id='small_pic' >
+    <div id='hovered_show' style="position: relative; color: white;" (mouseenter)= "onMouseover(d.id)" (mouseleave) = "onMouseout()">
+      <img src="{{d.image.medium}}" id='pic_hover'>
+        <p *ngIf="hoveredId===d.id"  id='summary_shown' >
+          {{d.summary}}
+        </p>
+    </div>
+  </a>
+      <!-- <p *ngIf= "hoveredId===d.id" style=" position: absolute; bottom: 0; left: 0; max-width: 210px; max-height: 280px">
+          {{d.summary }}</p> -->
 </div>
+ 
+  
 

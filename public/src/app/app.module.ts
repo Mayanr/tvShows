@@ -10,6 +10,7 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
 import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { FormsModule } from '@angular/forms';
+import { StarRatingModule } from 'angular-star-rating'
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StarRatingModule.forRoot()
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

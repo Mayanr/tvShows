@@ -13,6 +13,7 @@ export class ViewDetailsComponent implements OnInit {
   thisShow: any;
   showId: any;
   summary: any;
+  starring:any; 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -25,7 +26,8 @@ export class ViewDetailsComponent implements OnInit {
       this.showId = params['id'];
     })
     this.getThisShow(this.showId);
-    // this.thisShow = { name: "", type: "" , description: "", skills: []}
+    this.thisShow = { name: '', type: '', language:'', status:'', runtime: '', premiered: '', genre: [], rating: '', image: ''},
+    this.getStars(this.showId);
   }
 
   getThisShow(show_id){
@@ -34,9 +36,16 @@ export class ViewDetailsComponent implements OnInit {
     obs.subscribe(data => {
       //  console.log("got the one rider:" , data);
        this.thisShow = data;
-       this.summary = data.summary.replace('<p>', ' ').replace('<b>', ' ').replace('</b>', ' ').replace('</p>', ' ').replace('<br>', '').replace('<p>', ' ').replace('</p>', ' ');
+       this.summary = this.thisShow.summary.replace('<p>', ' ').replace('<b>', ' ').replace('</b>', ' ').replace('</p>', ' ').replace('<br>', '').replace('<p>', ' ').replace('</p>', ' ').replace('</i>', ' ').replace('<i>', ' ').replace('<p>', ' ').replace('</p>', ' ');
        console.log(this.thisShow)
     })
   }
 
+  getStars(show_id){
+  let obs = this._httpService.getStars(this.showId);
+    obs.subscribe(data => {
+      console.log(data);
+      this.starring = data;
+    })
+  }
 }

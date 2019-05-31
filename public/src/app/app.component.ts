@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { HttpService } from './http.service';
 
@@ -8,9 +8,10 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
 
-  constructor(private _httpService: HttpService){}
-
+  constructor(
+    private _httpService: HttpService){}
+    
 
 }

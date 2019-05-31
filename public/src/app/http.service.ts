@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 import { HttpClient } from '@angular/common/http';
-import { observable, Observable } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -21,11 +21,14 @@ export class HttpService {
   }
 
   searchGenres(filter):  Observable<object> {
-    console.log('from service', filter.genre);
+    console.log('from service', filter.rating, filter.genre);
     //  /search/shows?q=:query
     // return this._http.get(`http://api.tvmaze.com/search/q=${filter.genre}`);
     return this._http.get(`//api.tvmaze.com/shows`);
+  }
 
+  getStars(show_id): Observable<object>{
+    return this._http.get(`//api.tvmaze.com/shows/${show_id}/cast`);
   }
 
 }

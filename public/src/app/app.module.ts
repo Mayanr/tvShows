@@ -11,6 +11,8 @@ import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { FormsModule } from '@angular/forms';
 import { StarRatingModule } from 'angular-star-rating'
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { StarRatingModule } from 'angular-star-rating'
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     StarRatingModule.forRoot()
   ],
   providers: [HttpService],

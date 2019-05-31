@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
+
 @Component({
   selector: 'app-all-shows',
   templateUrl: './all-shows.component.html',
@@ -20,6 +23,7 @@ export class AllShowsComponent implements OnInit {
 
 
   constructor(
+    private spinner: NgxSpinnerService,
     private _router: Router,
     private _httpService: HttpService
     ) { }
@@ -31,6 +35,15 @@ export class AllShowsComponent implements OnInit {
     // this.starring ;
     // this.hovered;
     // this.genre;
+
+      /** spinner starts on init */
+      this.spinner.show();
+   
+      setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+      }, 2000);
+    
   }
 
   fetchAPI() {

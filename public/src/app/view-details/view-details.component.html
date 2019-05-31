@@ -29,25 +29,28 @@
     <li>{{  genre }}</li>
   </ul>
 
-  <h6 *ngIf = "thisShow.character">Starring:</h6>
-  <p *ngIf = "thisShow.character" style="font-style: italic;">Hover over the actor to see the character (s)he portrays</p>
 
-  <div *ngFor="let s of starring" class="flip-box">
-      <span  *ngIf = "s.character.image != null && s.person.image != null">
-          <div class="flip-box-inner">
-            <div class="flip-box-front">
+    <div *ngIf = "starring">
+      <h6 >Starring:</h6>
+      <p style="font-style: italic;">Hover over the actor to see the character (s)he portrays</p>
 
-  <img src="{{ s.person.image.medium }}" height="100"> <p>{{s.person.name}}</p>
+      <div *ngFor="let s of starring" class="flip-box">
+          <span  *ngIf = "s.character.image != null && s.person.image != null">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+
+      <img src="{{ s.person.image.medium }}" height="100"> <p>{{s.person.name}}</p>
+                </div>
+
+                <div class="flip-box-back">  
+      <img src="{{ s.character.image.medium }}" height="100" ><p>{{s.character.name}}</p> 
+        
             </div>
-
-            <div class="flip-box-back">  
-  <img src="{{ s.character.image.medium }}" height="100" ><p>{{s.character.name}}</p> 
-    
-        </div>
-      </div>
-      <br>
-    </span>
-</div>
+          </div>
+          <br>
+        </span>
+    </div>
+  </div>
 </div>
 
 <img class='show_profile_pic' src="{{thisShow.image.original}}">

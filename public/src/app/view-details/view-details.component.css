@@ -35,17 +35,28 @@
   /* Style the front side (fallback if image is missing) */
   .flip-box-front {
     color: black;
-    font-size: 13px;
+    font-size: 11px;
   }
   
   /* Style the back side */
   .flip-box-back {
     color: black;
     transform: rotateY(180deg);
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .official_site_link{
       text-align: center;
       margin: 0 auto;
+      margin-bottom: 50px;
+  }
+
+  #selfStars {
+    display: inline-block;
+    margin-left: 15px;
+    width: 75px;
+    height: 150px;
+    color: black;
+    font-size: 11px;
+    vertical-align: top;
   }

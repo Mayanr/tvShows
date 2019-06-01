@@ -1,7 +1,7 @@
 @import '~css-star-rating/css/star-rating';
 
 body{
-    margin: 5% ;
+    /* margin: 5% ; */
     background: linear-gradient(to bottom right, white , silver);
 }
 
@@ -24,10 +24,29 @@ body{
     vertical-align: top;
 }
 
-.official_site_link{
-
-}
 
 .summary{
     padding: 0 20px;
 }
+
+.wrapper{
+    min-width: 100%;
+    height: 500px;
+    overflow: hidden;
+    z-index: -100;
+    position: absolute;
+    top: -50px; 
+    left: 0px;
+}
+
+.wrapper #myVideo{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    opacity: 0.5;
+    margin: 0;
+}
+
+
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Public</title>
+  <title>TV Guide</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
-  <app-root></app-root>
+    <header>
+      <div class="wrapper">
+          <video autoplay muted loop id="myVideo">
+              <source src="../assets/images/Film-set.mp4" type="video/mp4">
+          </video>
+        </div> 
+    </header>
+  <div class="container" style="z-index: 100; padding-top: 100px; ">
+  <app-root ></app-root>
 </div>
 </body>
 </html>

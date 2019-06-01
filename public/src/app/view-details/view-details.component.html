@@ -28,9 +28,11 @@
   <ul *ngFor="let genre of thisShow.genres">
     <li>{{  genre }}</li>
   </ul>
+<br>
 
 
-    <div *ngIf = "starring">
+    <div *ngIf = "!noStars">
+
       <h6 >Starring:</h6>
       <p style="font-style: italic;">Hover over the actor to see the character (s)he portrays</p>
 
@@ -51,10 +53,20 @@
         </span>
     </div>
   </div>
+
+
+    <div *ngIf = "noStars">
+      <h6 >Starring:</h6>
+      <br>
+      <div *ngFor="let s of starring" id="selfStars">
+        <img src="{{ s.person.image.medium }}" height="100"> <p>{{s.person.name}}</p>
+      </div>
+    </div>
+
 </div>
 
 <img class='show_profile_pic' src="{{thisShow.image.original}}">
 
-<div class='official_site_link'>
+<div class='official_site_link' *ngIf= "thisShow.officialSite != null">
   <a href="{{ thisShow.officialSite }}" target="_blank"><button style="padding: 15px;" >More details on the official site</button></a>
 </div> 

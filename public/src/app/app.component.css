@@ -1,0 +1,12 @@
+#headerText h1 {
+    display: inline-block;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
+    padding: 0 20%;
+}
+
+
+
+#headerText {
+    padding-bottom: 75px;
+}

@@ -13,7 +13,8 @@ export class ViewDetailsComponent implements OnInit {
   thisShow: any;
   showId: any;
   summary: any;
-  starring:any; 
+  starring:any;
+  noStars: boolean; 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -44,8 +45,14 @@ export class ViewDetailsComponent implements OnInit {
   getStars(show_id){
   let obs = this._httpService.getStars(this.showId);
     obs.subscribe(data => {
-      console.log(data);
+      console.log("get starts is:" , data);
       this.starring = data;
+      for(var s of this.starring){
+        if(s.self ===true){
+          this.noStars = true;
+          console.log('do not display starring section', this.noStars);
+        }
+      }
     })
   }
 }

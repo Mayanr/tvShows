@@ -12,6 +12,8 @@ import { TopRatedComponent } from './top-rated/top-rated.component';
 import { FormsModule } from '@angular/forms';
 import { StarRatingModule } from 'angular-star-rating'
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -24,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,

@@ -29,24 +29,5 @@ body{
     padding: 0 20px;
 }
 
-.wrapper{
-    min-width: 100%;
-    height: 600px;
-    overflow: hidden;
-    z-index: -100;
-    position: absolute;
-    /* top: -10px;  */
-    left: 0px;
-}
-
-.wrapper #myVideo{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: -100;
-    opacity: 0.5;
-    margin: 0;
-}
-
 
 

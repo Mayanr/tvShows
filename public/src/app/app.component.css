@@ -3,10 +3,11 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 100px;
     padding: 0 20%;
+    margin-top: 25px;
 }
 
 
 
 #headerText {
-    padding-bottom: 75px;
+    padding-bottom: 225px;
 }
